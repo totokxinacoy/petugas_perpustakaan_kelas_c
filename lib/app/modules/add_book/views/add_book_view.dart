@@ -15,50 +15,56 @@ class AddBookView extends GetView<AddBookController> {
       ),
       body: Center(
           child: Form(
-            key: controller.formkey,
+            key: controller.formKey,
             child: Column(
               children: [
                 TextFormField(
-                    controller: controller.judulController,
-                    decoration: InputDecoration(hintText: "Masukan Judul"),
-                    validator: (value) {
-                      if (value!.length < 2) {
-                        return "Username Tidak Boleh Sama";
-                      }
-                      return null;
-                    }),
+                  controller: controller.judulController,
+                  decoration: InputDecoration(hintText: "Masukkan Judul"),
+                  validator: (value) {
+                    if (value!.length < 2) {
+                      return "Judul tidak boleh kosong";
+                    }
+                    return null;
+                  },
+                ),
                 TextFormField(
-                    controller: controller.penulisController,
-                    decoration: InputDecoration(hintText: "Masukan Penulis"),
-                    validator: (value) {
-                      if (value!.length < 2) {
-                        return "Password Tidak Boleh Kosong";
-                      }
-                      return null;
-                    }),TextFormField(
-                    controller: controller.penerbitController,
-                    decoration: InputDecoration(hintText: "Masukan Penerbit"),
-                    validator: (value) {
-                      if (value!.length < 2) {
-                        return "Password Tidak Boleh Kosong";
-                      }
-                      return null;
-                    }),TextFormField(
-                    controller: controller.tahunController,
-                    decoration: InputDecoration(hintText: "Masukan Tahun"),
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return "Password Tidak Boleh Kosong";
-                      }
-                      return null;
-                    }),
+                  controller: controller.penulisController,
+                  decoration: InputDecoration(hintText: "Masukkan Penulis"),
+                  validator: (value) {
+                    if (value!.length < 2) {
+                      return "Penulis tidak boleh kosong";
+                    }
+                    return null;
+                  },
+                ),
+                TextFormField(
+                  controller: controller.penerbitController,
+                  decoration: InputDecoration(hintText: "Masukkan Penerbit"),
+                  validator: (value) {
+                    if (value!.length < 2) {
+                      return "Penerbit tidak boleh kosong";
+                    }
+                    return null;
+                  },
+                ),
+                TextFormField(
+                  controller: controller.tahun_terbitController,
+                  decoration: InputDecoration(hintText: "Masukkan Tahun Terbit"),
+                  validator: (value) {
+                    if (value!.length < 2) {
+                      return "Tahun Terbit tidak boleh kosong";
+                    }
+                    return null;
+                  },
+                ),
                 Obx(() => controller.loading.value
                     ? CircularProgressIndicator()
                     : ElevatedButton(
                     onPressed: () {
-                      controller.addBook();
+                      controller.addBuku();
                     },
-                    child: Text("Login")))
+                    child: Text("Tambah Buku")))
               ],
             ),
           )),
