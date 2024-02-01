@@ -21,7 +21,7 @@ class PeminjamanView extends GetView<PeminjamanController> {
                 DataPinjam dataPinjam = state[index];
                 return ListTile(
                   leading: Icon(Icons.bookmarks),
-                  title: Text("${dataPinjam.book}"),
+                  title: Text("${dataPinjam.book?.judul}"),
                   subtitle: Text(
                       "Penulis ${dataPinjam.book?.penulis}\n${dataPinjam.tanggalPinjam} - ${dataPinjam.tanggalKembali}"),
                 );
